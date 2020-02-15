@@ -33,6 +33,12 @@ def results():
 def hello_name(user):
     return render_template('hello.html',name=user)
 
+@app.route('/submitpost',methods=['POST'])
+def testpost():
+    final_features = [x for x in request.form.values()]
+    return render_template('hello.html', submitted_values='Array of submitted values : {}'.format(final_features))
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 
